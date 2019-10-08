@@ -1,12 +1,9 @@
 from pathlib import Path
+import configparser
 import cv2
-import time
 import numpy as np
 import tensorflow as tf
 import threading
-from http.server import BaseHTTPRequestHandler, HTTPServer
-import json
-import configparser
 import video_utils
 import sys
 import streamlit as st
@@ -188,7 +185,6 @@ def main():
                         break
                     # Change color gammut to feed the frame into the network
                     frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-                    t0 = time.time()
                     output = run_inference_for_single_image(frame, sess, 
                         detection_graph)
                     output = discriminate_class(output, 
