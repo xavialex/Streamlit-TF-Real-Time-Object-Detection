@@ -1,0 +1,1 @@
+Folder where to locate the *model.ckpt* files which contains the model architecture and weights that'll perform the Computer Vision task to the domain defined in the script of interest. For a quick start, have a look at the models available in the [TF Model Zoo](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md).
