@@ -149,26 +149,32 @@ def main():
         max_num_classes=num_classes, use_display_name=True)
     category_index = label_map_util.create_category_index(categories)
 
-    # Model load
-    path_to_ckpt = config['net']['path_to_ckpt']
-    detection_graph = model_load_into_memory(path_to_ckpt)
-
     # Streamlit initialization
     st.title("Object Detection")
     st.sidebar.title("Object Detection")
+    ## Select classes to be detected by the model
     classes_names = [value['name'] for value in category_index.values()]
+    classes_names.sort()
     classes_to_detect = st.sidebar.multiselect(
         "Select which classes to detect", classes_names, ['person'])
+    ## Select camera to feed the model
+    available_cameras = {'Camera 1': 0, 'Camera 2': 1, 'Camera 3': 2}
+    cam_id = st.sidebar.selectbox(
+        "Select which camera signal to use", list(available_cameras.keys()))
+    ## Select a model to perform the inference
+    available_models = [str(i) for i in Path('./trained_model/').iterdir() 
+        if i.is_dir() and list(Path(i).glob('*.pb'))]
+    model_name = st.sidebar.selectbox(
+        "Select which model to use", available_models)
     # Define holder for the processed image
     img_placeholder = st.empty()
 
+    # Model load
+    path_to_ckpt = '{}/frozen_inference_graph.pb'.format(model_name)
+    detection_graph = model_load_into_memory(path_to_ckpt)
+
     # Load video source into a thread
-    try:
-        video_source = config['video'].getint('source')
-        print("Activating webcam number {}".format(video_source))
-    except:
-        print("No available webcams detected")
-        sys.exit()  
+    video_source = available_cameras[cam_id]
     ## Start video thread
     video_thread = video_utils.WebcamVideoStream(video_source)
     video_thread.start()
@@ -204,6 +210,7 @@ def main():
         pass
 
     print("Ending resources")
+    st.text("Camera not detected")
     cv2.destroyAllWindows()
     video_thread.stop()
     sys.exit()
