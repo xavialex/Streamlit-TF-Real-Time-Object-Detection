@@ -2,6 +2,8 @@
 
 Interactive Web App that performs object detection within a video stream.
 
+![demo_gif](./resources/gifs/demo.gif)
+
 ## Dependencies
 
 If you're a conda user, you can create an environment from the ```environment.yml``` file using the Terminal or an Anaconda Prompt for the following steps:
