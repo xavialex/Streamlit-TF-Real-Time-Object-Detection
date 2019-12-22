@@ -23,6 +23,8 @@ You can also clone the environment through the environment manager of Anaconda N
 
 It's mandatory to download at least a TensorFlow object detection model. Several models can be found in th [TF Model Zoo](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md). The models should be placed in the *trained_model/* folder.
 
+**Note:** If you already have installed a version of TF Object Detection, you might want to erase the *object_detection/* folder.
+
 ## Use
 
 Within the virtual environment:
