@@ -1,4 +1,4 @@
-# Streamlit-TF-Real-Time-Object-Detection
+# Streamlit TF Real Time Object Detection
 
 Interactive Web App that performs object detection within a video stream.
 
