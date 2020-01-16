@@ -2,6 +2,9 @@
 /trained_model
 !trained_model/README.md
 
+# virtualenv
+obj-det/
+
 # Visual Studio Code
 .vscode/
 
