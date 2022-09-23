@@ -58,7 +58,7 @@ Pillow==7.0.0
 pkg-resources==0.0.0
 prometheus-client==0.7.1
 prompt-toolkit==3.0.2
-protobuf==3.11.2
+protobuf==3.18.3
 ptyprocess==0.6.0
 pydeck==0.2.0
 Pygments==2.5.2
