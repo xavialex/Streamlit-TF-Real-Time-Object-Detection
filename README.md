@@ -1,3 +1,5 @@
+
+
 # Streamlit TF Real Time Object Detection
 
 Interactive Web App that performs object detection within a video stream.
@@ -6,7 +8,7 @@ Interactive Web App that performs object detection within a video stream.
 
 ## Dependencies
 
-Running the application can be done following the instructions above:
+Running the application can be done following the instructions below:
 
 1. To create a Python Virtual Environment (virtualenv) to run the code, type:
 
